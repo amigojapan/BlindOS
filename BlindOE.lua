@@ -46,8 +46,10 @@ while quit==false do
 			speakAndPrint(os.date("It is %I oclock with %M minutes %p"))
 		elseif(command_line_arr[1]=="list" and command_line_arr[2]=="lines") then
 			local filename=parameters(commands_line_arr,2)
-			print(filename)
 			os.execute("./line_edutor.lua " .. filename .. " list")	
+		elseif(command_line_arr[1]=="edit") then
+			local filename=parameters(commands_line_arr,1)
+			os.execute("./line_edutor.lua " .. filename)	
 		elseif(command_line_arr[1]=="help") then
 			speakAndPrint("help for Blind EV, commands follow:")
 			speakAndPrint("say phrase, will say a phrase.")
@@ -56,6 +58,7 @@ while quit==false do
 			speakAndPrint("ls, will list the files in the current directory")
 			speakAndPrint("date, will say the current date")
 			speakAndPrint("time, will say the current time")
+			speakAndPrint("list lines X, lists all the lines of file X")
 		elseif(command_input=="quit") then
 			speakAndPrint("Goodbye!")
 			break
