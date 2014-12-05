@@ -59,6 +59,7 @@ while quit==false do
 			speakAndPrint("date, will say the current date")
 			speakAndPrint("time, will say the current time")
 			speakAndPrint("list lines X, lists all the lines of file X")
+			speakAndPrint("edit X, edits file X")
 		elseif(command_input=="quit") then
 			speakAndPrint("Goodbye!")
 			break
