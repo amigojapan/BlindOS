@@ -6,6 +6,9 @@ function speakAndPrint(output,sayPunctuation,spaces)
 	if spaces == nil then spaces = false end
 	--print(sayPunctuation)
 	print(output)
+	if not speachSynthOn then
+		return
+	end 
 	local tmp = convert_punctuation_to_words(output,sayPunctuation,spaces)
 	os.execute(pathToSpeachSynth .. " " .. parametersToSpeachSynth ..  " \"" .. tmp .."\"")
 end
