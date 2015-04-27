@@ -53,7 +53,7 @@ while quit==false do
 		elseif(command_line_arr[1]=="help") then
 			speakAndPrint("help for Blind EV, commands follow:")
 			speakAndPrint("say phrase, will say a phrase.")
-			speakAndPrint("run external command, will run the command you specify on the host operating system.")
+			speakAndPrint("run external command, will run the command you specify on the host operating system. not for interactive programs")
 			speakAndPrint("calculate formula, will do the math in the formula tell you the result")
 			speakAndPrint("ls, will list the files in the current directory")
 			speakAndPrint("date, will say the current date")
