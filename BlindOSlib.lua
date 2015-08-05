@@ -1,5 +1,5 @@
 require("punctuation")
-function speakAndPrint(output,sayPunctuation,spaces)
+function speakAndPrint(output,sayPunctuation,spaces,language)
 	--ssayPunctuation = sayPunctuation == nil and true or sayPunctuation
 	--spaces = spaces == nil and false or spaces
 	if sayPunctuation == nil then sayPunctuation = true end
@@ -10,7 +10,14 @@ function speakAndPrint(output,sayPunctuation,spaces)
 		return
 	end 
 	local tmp = convert_punctuation_to_words(output,sayPunctuation,spaces)
-	os.execute(pathToSpeachSynth .. " " .. parametersToSpeachSynth ..  " \"" .. tmp .."\"")
+	--if language == "japanese"
+	--unsafe for shell injection os.execute(pathToSpeachSynth .. " " .. parametersToSpeachSynth ..  " \"" .. tmp .."\"")
+	--writing to a file to prevent shell injection
+	--***this may need tweeks for windows cause of the unix slashes
+	file = assert(io.open(tmpDir.."/"..safeSpeakFileName,"w+"))
+	file:write(output)
+	file:close()
+	os.execute(pathToSpeachSynth .. " " .. parametersToSpeachSynth ..  tmpDir.."/"..safeSpeakFileName .. ">/dev/null")
 end
 function split_by_space(str)
 	local arr = {}

@@ -5,14 +5,20 @@
 require "settings"
 --helper functions
 require "BlindOSlib"
+--internationalization dictionary
+require "i18n_dict"
+translate=i18n_setlang("English")
+
 if(not advacedMode) then
 	speakAndPrint("Weolcome to Blind OS",false)
 	speakAndPrint("Type help and press enter for help on how to use the commands",false)
+	speakAndPrint("日本語モードに変えるには「日本語」ってにゆうりょくしてください。",false)
+	
 end
 
 quit=false
 while quit==false do
-	speakAndPrint("Enter command:",false)
+	speakAndPrint(translate["Enter command:"],false)
 	local command_input = io.read()
 	if(not advacedMode) then
 		speakAndPrint("Command entered: " .. command_input .."",false)
@@ -60,10 +66,11 @@ while quit==false do
 			speakAndPrint("time, will say the current time")
 			speakAndPrint("list lines X, lists all the lines of file X")
 			speakAndPrint("edit X, edits file X")
+		elseif(command_input=="日本語") then
+			translate=i18n_setlang("Japanese")
 		elseif(command_input=="quit") then
 			speakAndPrint("Goodbye!")
 			break
-			
 		else
 			if not advancedMode then
 				speakAndPrint("internal command not found, trying external command")
