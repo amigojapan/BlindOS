@@ -1,4 +1,4 @@
-#!./lua/mac64bit/bin/lua
+#!/usr/bin/lua
 -- Copyright 2014 Usmar A. Padow (amigojapan) usmpadow@gmail.com
 --browser is a web browser for blind people
 --Load settings

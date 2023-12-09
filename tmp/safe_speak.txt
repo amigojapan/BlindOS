@@ -1,1 +1,1 @@
-ご命令を：
+Enter command:

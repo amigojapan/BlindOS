@@ -1,4 +1,4 @@
-#!./lua/mac64bit/bin/lua
+#!/usr/bin/lua
 -- Copyright 2014 Usmar A. Padow (amigojapan) usmpadow@gmail.com
 -- Table of puctuation pronounciation
 punctuation={}
@@ -45,5 +45,6 @@ function convert_punctuation_to_words(str,sayPunctuation,spaces)
 			str = string.gsub(str,"%" .. mark," " .. word.. " ")
 		end
 	end
+	--print(str)
 	return str
 end

@@ -1,4 +1,4 @@
-#!./lua/mac64bit/bin/lua
+#!/usr/bin/lua
 -- Copyright 2014 Usmar A. Padow (amigojapan) usmpadow@gmail.com
 --Line editor is a text editor for blind people
 --Load settings
@@ -16,13 +16,15 @@ function ennumerate_lines()
 end
 buffer={}
 if(not file_exists(arg[1])) then
-	speakAndPrint("File does not exist" .. arg[1])
+	speakAndPrint("File does not exist " .. arg[1].. " creating it as new file.")
 else
 	for line in io.lines(arg[1]) do
-		table.insert(buffer,table.getn(buffer)+1)
-		buffer[table.getn(buffer)]=line--fills the last element with the line from the file
+		--table.insert(buffer,table.getn(buffer)+1)
+		table.insert(buffer,#buffer+1)
+		--buffer[table.getn(buffer)]=line--fills the last element with the line from the file
+		buffer[#buffer]=line--fills the last element with the line from the file
 	end
-	speakAndPrint("File " .. arg[1] .. " contains " .. table.getn(buffer) .. " lines.")
+	speakAndPrint("File " .. arg[1] .. " contains " .. #buffer .. " lines.")
 end
 
 --external call
@@ -33,7 +35,7 @@ if arg[2]=="list" then
 end
 
 if(not advacedMode) then
-	speakAndPrint("Weolcome to line editor")
+	speakAndPrint("Welcome to line editor")
 	speakAndPrint("Type help and press enter for help on how to use the commands")
 end
 --loop
@@ -50,36 +52,37 @@ while quit==false do
 			local listing=ennumerate_lines()
 			speakAndPrint(listing)
 		elseif(command_line_arr[1]=="line" and command_line_arr[2]=="count") then
-			speakAndPrint("File contains " .. table.getn(buffer) .. " lines.")
+			speakAndPrint("File contains " .. #buffer .. " lines.")
 		elseif(command_line_arr[1]=="delete" and command_line_arr[2]=="line") then
 			local index = tonumber(command_line_arr[3])
-			if(index>table.getn(buffer)) then
-				speakAndPrint("The file has only" .. table.getn(buffer) .. " lines " .. " you cannot insert at index " .. index)
+			if(index>#buffer) then
+				speakAndPrint("The file has only" .. #buffer .. " lines " .. " you cannot insert at index " .. index)
 			else
 				table.remove(buffer, index)
 			end
 		elseif(command_line_arr[1]=="append" and command_line_arr[2]=="line") then
-			table.insert(buffer,table.getn(buffer)+1)
+			table.insert(buffer,#buffer+1)
 			speakAndPrint("Type contents: ")			
 			local new_line = io.read()
 			speakAndPrint(new_line)	
-			buffer[table.getn(buffer)]=new_line
+			buffer[#buffer]=new_line
 		elseif(command_line_arr[1]=="insert" and command_line_arr[2]=="line") then
-			--this is buggy, it seems to modify the following line after the insert to a number?
+			--(fixed)this is buggy, it seems to modify the following line after the insert to a number?
 			local index = tonumber(command_line_arr[3])
-			if(index>table.getn(buffer)) then
-				speakAndPrint("The file has only" .. table.getn(buffer) .. " lines " .. " you cannot insert at index " .. index)
+			if(index>#buffer) then
+				speakAndPrint("The file has only" .. #buffer .. " lines " .. " you cannot insert at index " .. index)
 			else
-				table.insert(buffer, command_line_arr[3])
 				speakAndPrint("Type contents: ")			
 				local new_line = io.read()
+				new_line = new_line:gsub("\n", "")  -- Remove newline character
+				table.insert(buffer, command_line_arr[3], new_line)
 				speakAndPrint(new_line)	
 				buffer[index] = new_line
 			end 
 		elseif(command_line_arr[1]=="edit" and command_line_arr[2]=="line") then
 			local index = tonumber(command_line_arr[3])
-			if(index>table.getn(buffer)) then
-				speakAndPrint("The file has only" .. table.getn(buffer) .. " lines " .. " you cannot edit at index " .. index)
+			if(index>#buffer) then
+				speakAndPrint("The file has only" .. #buffer .. " lines " .. " you cannot edit at index " .. index)
 			else
 				speakAndPrint("Line used to contain: " .. buffer[index])
 				speakAndPrint("Type new contents: ")			
@@ -90,19 +93,23 @@ while quit==false do
 			--print(buffer[index])--this is nil eventhough index is 1, what is up?
 			--bug solved , needed to ocnvert to a number print(buffer[1])--this prints, not nil
 			local index = tonumber(command_line_arr[3])
-			if(index>table.getn(buffer)) then
-				speakAndPrint("The file has only" .. table.getn(buffer) .. " lines " .. " you ssked for index " .. index)
+			if(index>#buffer) then
+				speakAndPrint("The file has only" .. #buffer .. " lines " .. " you asked for index " .. index)
 			else
 				tmp = buffer[index]
 				if(command_line_arr[4]=="with" and command_line_arr[5]=="punctuation") then
+					--print("here0")
 					if(command_line_arr[6]=="and" and command_line_arr[7]=="spaces") then
-						tmp = convert_punctuation_to_words(buffer[index],true)
+						tmp = convert_punctuation_to_words(buffer[index],true,true)
 						print("space")
+						--print(tmp)
 					else
-						tmp = convert_punctuation_to_words(buffer[index],false)
+						tmp = convert_punctuation_to_words(buffer[index],true)
 						print("punct")
+						--print(tmp)
 					end
 				end
+				--print(tmp)
 				speakAndPrint(tmp)				
 			end
 		elseif(command_line_arr[1]=="save") then
@@ -119,12 +126,14 @@ while quit==false do
 				for counter, line in ipairs(buffer) do
 					data = data  .. line .. "\n"
 				end
+				--print(data)
 				file:write(data)
 				file:close()
 				speakAndPrint("File " ..arg[1].." saved.")		
 			end													
 		elseif(command_line_arr[1]=="help") then
 			speakAndPrint("line count, tells you the number of lines in the file")
+			speakAndPrint("list liens, gives you a listing of the lines and line numbers")
 			speakAndPrint("delete line X, deletes line X")
 			speakAndPrint("append line, appends a new line at the end of the file")
 			speakAndPrint("insert line X, inserts a new line in line number X")
@@ -133,6 +142,7 @@ while quit==false do
 			speakAndPrint("say line X with punctuation, says the contents of line X with punctuation")
 			speakAndPrint("say line X with punctuation ans spaces, says the contents of line X with punctuation and spaces")
 			speakAndPrint("save, saves the file")			
+			speakAndPrint("quit,quits editor")
 		elseif(command_input=="quit") then
 			if(not advacedMode) then
 				speakAndPrint("Quit editor? Y for yes N for no")
@@ -148,3 +158,4 @@ while quit==false do
 		end
 	end
 end
+--add an option to list a range of lines

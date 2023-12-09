@@ -17,7 +17,9 @@ function speakAndPrint(output,sayPunctuation,spaces,language)
 	file = assert(io.open(tmpDir.."/"..safeSpeakFileName,"w+"))
 	file:write(output)
 	file:close()
-	os.execute(pathToSpeachSynth .. " " .. parametersToSpeachSynth ..  tmpDir.."/"..safeSpeakFileName .. ">/dev/null")
+	command=pathToSpeachSynth .. " " .. parametersToSpeachSynth ..  tmpDir.."/"..safeSpeakFileName .. ">/dev/null"
+	--print(command)
+	os.execute(command)
 end
 function split_by_space(str)
 	local arr = {}

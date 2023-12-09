@@ -1,4 +1,4 @@
-#!./lua/mac64bit/bin/lua
+#!/usr/bin/lua
 -- Copyright 2014 Usmar A. Padow (amigojapan) usmpadow@gmail.com
 -- BlindOE (the operation environment, should offer something like the bash shell for blind people)
 --Load settings
@@ -10,10 +10,9 @@ require "i18n_dict"
 translate=i18n_setlang("English")
 
 if(not advacedMode) then
-	speakAndPrint("Weolcome to Blind OS",false)
+	speakAndPrint("Weolcome to Blind Operating Environment",false)
 	speakAndPrint("Type help and press enter for help on how to use the commands",false)
-	speakAndPrint("日本語モードに変えるには「日本語」ってにゆうりょくしてください。",false)
-	
+	--speakAndPrint("日本語モードに変えるには「日本語」ってにゆうりょくしてください。",false)
 end
 
 quit=false
@@ -39,7 +38,7 @@ while quit==false do
 			speakAndPrint(output)
 		elseif(command_line_arr[1]=="calculate") then
 			formula=parameters(commands_line_arr,1)
-			local result = loadstring("return " .. formula)()--eval
+			local result = load("return " .. formula)()--eval
 			speakAndPrint(formula .. " is equal to " .. result)
 		elseif(command_line_arr[1]=="ls" or command_line_arr[1]=="dir") then
 			local command_line=parameters(commands_line_arr,0)
@@ -57,9 +56,9 @@ while quit==false do
 			local filename=parameters(commands_line_arr,1)
 			os.execute("./line_edutor.lua " .. filename)	
 		elseif(command_line_arr[1]=="help") then
-			speakAndPrint("help for Blind EV, commands follow:")
+			speakAndPrint("help for Blind Operating Environment, commands follow:")
 			speakAndPrint("say phrase, will say a phrase.")
-			speakAndPrint("run external command, will run the command you specify on the host operating system. not for interactive programs")
+			speakAndPrint("run external X, will run the command X you specify on the host operating system. not for interactive programs")
 			speakAndPrint("calculate formula, will do the math in the formula tell you the result")
 			speakAndPrint("ls, will list the files in the current directory")
 			speakAndPrint("date, will say the current date")
