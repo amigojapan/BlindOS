@@ -8,8 +8,15 @@ BlindOE (the operation environment, similar to bash) -this program helps people 
 line_edutor.lua (offers an easy line editor, the reason for a line editor is so that the whole document does not need to be synthesized into speech just to correct one mistake, this tool can be used for programming too,simple version could just have a shortcut for repeating the previous line, and a way to retype it. an advanced version may have a way to move from word to word, and letter by letter, and a way to say the current word and the current letter and the current line and the whole file)
 Programming for the blind.  have a way to edit programs, so that blind people can make new programs, and publish them to the package manager, so that the project can grow more)
 
+edit settings.lua to adjust to  your own OS
+requires espeak, please install espeak.
+requires lua, please install lua.
+then clone this repo.
+then tun ./BlindOE.lua
+
 —up to here most things have been implemented
 To do:
+0). modify all / to a variable so it can run fine on windows too
 1). BlindWEB (A web client that accesses a group of webpages designed  specifically for the blind), this will also allow people to host their own applications made for BlindOS on the web 
 2). Blind Mail Client
 3). BlindIRC (An IRC chat client that allows to simultaneously type while listening to what the chat is saying)
