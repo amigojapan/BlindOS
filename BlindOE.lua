@@ -10,7 +10,7 @@ require "i18n_dict"
 translate=i18n_setlang("English")
 
 if(not advacedMode) then
-	speakAndPrint("Weolcome to Blind Operating Environment",false)
+	speakAndPrint("Welcome to Blind Operating Environment",false)
 	speakAndPrint("Type help and press enter for help on how to use the commands",false)
 	--speakAndPrint("日本語モードに変えるには「日本語」ってにゆうりょくしてください。",false)
 end
@@ -20,7 +20,7 @@ while quit==false do
 	speakAndPrint(translate["Enter command:"],false)
 	local command_input = io.read()
 	if(not advacedMode) then
-		speakAndPrint("Command entered: " .. command_input .."",false)
+		speakAndPrint("Command entered, " .. command_input .."",false)
 		speakAndPrint("Execute? Y for Yes N for No:",false)
 	else
 		speakAndPrint(command_input)
@@ -35,6 +35,9 @@ while quit==false do
 		elseif(command_line_arr[1]=="run" and command_line_arr[2]=="external") then
 			local command_line=parameters(commands_line_arr,2)
 			local output = os.capture(command_line,true)
+			--os.execute("orca;" .. command_line,true)
+			--local output = os.execute()
+			--os.execute("killall orca",true)
 			speakAndPrint(output)
 		elseif(command_line_arr[1]=="calculate") then
 			formula=parameters(commands_line_arr,1)
@@ -72,11 +75,9 @@ while quit==false do
 			break
 		else
 			if not advancedMode then
-				speakAndPrint("internal command not found, trying external command")
+				local command_line=parameters(commands_line_arr,0)
+				speakAndPrint("internal command not found, try external command by typing, run external" .. command_line )
 			end
-			local command_line=parameters(commands_line_arr,0)
-			local output = os.capture(command_line,true)
-			speakAndPrint(output)
 		end
 	end
 end

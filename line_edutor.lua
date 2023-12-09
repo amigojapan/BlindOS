@@ -133,7 +133,7 @@ while quit==false do
 			end													
 		elseif(command_line_arr[1]=="help") then
 			speakAndPrint("line count, tells you the number of lines in the file")
-			speakAndPrint("list liens, gives you a listing of the lines and line numbers")
+			speakAndPrint("list lines, gives you a listing of the lines and line numbers")
 			speakAndPrint("delete line X, deletes line X")
 			speakAndPrint("append line, appends a new line at the end of the file")
 			speakAndPrint("insert line X, inserts a new line in line number X")
