@@ -9,8 +9,11 @@ line_edutor.lua (offers an easy line editor, the reason for a line editor is so 
 Programming for the blind.  have a way to edit programs, so that blind people can make new programs, and publish them to the package manager, so that the project can grow more)
 
 install flite
+
 install lua
+
 clone this repo
+
 run ./BlindOE.lua
 
 —up to here most things have been implemented
