@@ -7,10 +7,16 @@ require "settings"
 require "BlindOSlib"
 --punctuation lib
 require "punctuation"
-function ennumerate_lines()
+function ennumerate_lines(from,to)
 	local output=""
+	--print("from:"..from)
+	--print("to:"..to)
 	for counter, line in ipairs(buffer) do
-		output = output  .. "Line " .. counter .. " " .. line .. ".\n"
+		--print("counter:"..counter)
+		--print("line:"..line)
+		if(tonumber(counter)>=tonumber(from) and tonumber(counter)<=tonumber(to)) then
+			output = output  .. "Line " .. counter .. " " .. line .. ".\n"
+		end
 	end
 	return output
 end
@@ -29,7 +35,7 @@ end
 
 --external call
 if arg[2]=="list" then
-	local listing=ennumerate_lines()
+	local listing=ennumerate_lines(1,#buffer)
 	speakAndPrint(listing)
 	os.exit()
 end
@@ -48,8 +54,13 @@ while quit==false do
 --		speakAndPrint("Execute? Y for Yes N for No:")
 --	else
 		command_line_arr = split_by_space(command_input)
-		if(command_line_arr[1]=="list") then
-			local listing=ennumerate_lines()
+		if(command_line_arr[1]=="list") then --lines is not really nessesary to type
+			local listing=""
+			if(command_line_arr[3]=="from") then
+				listing=ennumerate_lines(command_line_arr[4],command_line_arr[6])
+			else
+				listing=ennumerate_lines(1,#buffer)
+			end
 			speakAndPrint(listing)
 		elseif(command_line_arr[1]=="line" and command_line_arr[2]=="count") then
 			speakAndPrint("File contains " .. #buffer .. " lines.")
@@ -134,6 +145,7 @@ while quit==false do
 		elseif(command_line_arr[1]=="help") then
 			speakAndPrint("line count, tells you the number of lines in the file")
 			speakAndPrint("list lines, gives you a listing of the lines and line numbers")
+			speakAndPrint("list lines from X to Y, gives you a listing of the lines from line X to line Y")
 			speakAndPrint("delete line X, deletes line X")
 			speakAndPrint("append line, appends a new line at the end of the file")
 			speakAndPrint("insert line X, inserts a new line in line number X")

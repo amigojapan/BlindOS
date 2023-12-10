@@ -56,6 +56,7 @@ function file_exists(name)
 end
 function parameters(commands_line_arr,command_length)
 	local params=""
+	--print ("command_line_arr:" .. command_line_arr)
 	for i, word in ipairs(command_line_arr) do
 		if(i>command_length) then 
 			params = params .. " " .. word

@@ -39,15 +39,24 @@ while quit==false do
 			--local output = os.execute()
 			--os.execute("killall orca",true)
 			speakAndPrint(output)
+		elseif(command_line_arr[1]=="run" and command_line_arr[2]=="lua") then
+			local command_line=parameters(commands_line_arr,2)
+			os.execute("lua " .. command_line,true)
 		elseif(command_line_arr[1]=="calculate") then
 			formula=parameters(commands_line_arr,1)
 			local result = load("return " .. formula)()--eval
 			speakAndPrint(formula .. " is equal to " .. result)
 		elseif(command_line_arr[1]=="ls" or command_line_arr[1]=="dir") then
-			local command_line=parameters(commands_line_arr,0)
-			local output = os.capture(command_line,true)
-			local enumerated_output = ennumerate_line(output,"File")
-			speakAndPrint(enumerated_output)
+			local arguments = ""
+			if command_line_arr[2] ~= nil then
+				--print("command_line_arr[2]:" .. command_line_arr[2])
+				arguments='"'..command_line_arr[2]..'"'--parameters(commands_line_arr,1)
+			end
+			if command_line_arr[3] ~= nil then
+				arguments=arguments.." "..command_line_arr[3]--parameters(commands_line_arr,1)
+			end
+			--print("arguments:" .. arguments)
+			os.execute("./ls.lua " .. arguments)
 		elseif(command_line_arr[1]=="date") then
 			speakAndPrint(os.date("Today is %B %A the %dth"))
 		elseif(command_line_arr[1]=="time") then
@@ -61,7 +70,8 @@ while quit==false do
 		elseif(command_line_arr[1]=="help") then
 			speakAndPrint("help for Blind Operating Environment, commands follow:")
 			speakAndPrint("say phrase, will say a phrase.")
-			speakAndPrint("run external X, will run the command X you specify on the host operating system. not for interactive programs")
+			speakAndPrint("run lua X, will run the lua program X")
+			speakAndPrint("run external X, will run the command X on the host operating system. not for interactive programs")
 			speakAndPrint("calculate formula, will do the math in the formula tell you the result")
 			speakAndPrint("ls, will list the files in the current directory")
 			speakAndPrint("date, will say the current date")
