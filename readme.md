@@ -1,6 +1,11 @@
 Copyright 2014 Usmar A. Padow (amigojapan) usmpadow@gmail.com
 
 please bare with the voice for first video, the voice improves after in the second video:
+
+<a href="https://youtu.be/IN-rEne0eFM?si=rzq6De4hgqESFxUM" target="_blank"><img src="https://raw.githubusercontent.com/amigojapan/BlindOS/master/youtube%20play%20button.jpg" 
+alt="video demo of ejspeak" width="240" height="180" border="10" /></a>
+
+
 <a href="https://www.youtube.com/embed/vW1Cn8gW_lg?si=6m35OMOxK82AuMy4" target="_blank"><img src="https://raw.githubusercontent.com/amigojapan/BlindOS/master/youtube%20play%20button.jpg" 
 alt="video demo of ejspeak" width="240" height="180" border="10" /></a>
 
