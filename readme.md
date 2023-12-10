@@ -1,7 +1,9 @@
 Copyright 2014 Usmar A. Padow (amigojapan) usmpadow@gmail.com
 
 please bare with the voice for first video, the voice improves after in the second video:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vW1Cn8gW_lg?si=6m35OMOxK82AuMy4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<a href="https://www.youtube.com/embed/vW1Cn8gW_lg?si=6m35OMOxK82AuMy4" target="_blank"><img src="http://img.youtube.com/vi/ixYcMDkbw10/0.jpg" 
+alt="video demo of ejspeak" width="240" height="180" border="10" /></a>
+
 
 BlindOS is an Operating Environment System designed specifically for the blind:
 the goals of this project is to make a multi-platform system(Windows, Mac, or Linux) that is easy to use for blind people that have little to no experience with using computers, and also to enable advanced computer programming for blind people.
