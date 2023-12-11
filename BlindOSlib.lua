@@ -1,4 +1,6 @@
 require("punctuation")
+require("settings")
+--readline = require("readline")
 function speakAndPrint(output,sayPunctuation,spaces,language)
 	--ssayPunctuation = sayPunctuation == nil and true or sayPunctuation
 	--spaces = spaces == nil and false or spaces
@@ -6,6 +8,47 @@ function speakAndPrint(output,sayPunctuation,spaces,language)
 	if spaces == nil then spaces = false end
 	--print(sayPunctuation)
 	print(output)
+	if not speachSynthOn then
+		return
+	end 
+	local tmp = convert_punctuation_to_words(output,sayPunctuation,spaces)
+	--if language == "japanese"
+	--unsafe for shell injection os.execute(pathToSpeachSynth .. " " .. parametersToSpeachSynth ..  " \"" .. tmp .."\"")
+	--writing to a file to prevent shell injection
+	--***this may need tweeks for windows cause of the unix slashes
+	file = assert(io.open(tmpDir.."/"..safeSpeakFileName,"w+"))
+	file:write(output)
+	file:close()
+	command=pathToSpeachSynth .. " " .. parametersToSpeachSynth .. " " .. tmpDir.."/"..safeSpeakFileName .. ">/dev/null"
+	--print(command)
+	os.execute(command)
+end
+function gnureadline()
+	while true do
+		-- Read a line using GNU Readline
+--		local line = readline.readline(prompt)
+	
+		-- Check for EOF (Ctrl+D)
+		if line == nil then
+			print("\nExiting.")
+			return ""--break
+		end
+	
+		-- Print the input
+		print("You entered:", line)
+		l=line
+		-- Free the allocated memory for the line
+--		readline.free(line)
+		return l
+	end
+end	
+function speakOnly(output,sayPunctuation,spaces,language)
+	--ssayPunctuation = sayPunctuation == nil and true or sayPunctuation
+	--spaces = spaces == nil and false or spaces
+	if sayPunctuation == nil then sayPunctuation = true end
+	if spaces == nil then spaces = false end
+	--print(sayPunctuation)
+	--print(output)
 	if not speachSynthOn then
 		return
 	end 

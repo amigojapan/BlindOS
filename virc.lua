@@ -10,17 +10,17 @@ require "helperFunctions"
 socket = require("socket")
 
 math.randomseed(os.time())
-print("arg[1]:"..arg[1])
-print("arg[2]:"..arg[2])
+--print("arg[1]:"..arg[1])
+--print("arg[2]:"..arg[2])
 if(arg[1]) then
     nick = arg[1]
 else    
-    nick ="shortestLuaIRC" .. math.random(1, 100)
+    nick ="voiceIRC" .. math.random(1, 1000)
 end
 if(arg[2]) then
     channel = arg[2]
 else    
-    channel = "##bottest"
+    channel = "##BlindOE"
 end
 
 server = "irc.libera.chat"
@@ -30,7 +30,7 @@ client:connect(server, 6667)
 client:settimeout(0)
 
 user_input = ""
-speakAndPrint("waiting 15 seconds for connect...\r\n server: " .. server .. " channel: " .. channel .. "")
+speakAndPrint("waiting 15 seconds for connect...\r\n server, " .. server .. " channel, " .. channel .. "")
 socket.sleep(15) -- wait enough till logon
 
 line = "nick ".. nick .. "\r\nuser a a a a\r\n"
