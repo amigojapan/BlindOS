@@ -23,8 +23,12 @@ the goals of this project are:
 -This project also has a second focus which is making itself reprogrammable by blind people, and allowing to make new applications for it by blind people 
 
 Programs: (in order of importance)
- BlindOE (the operation environment, similar to bash) -this program helps people manage their files and start programs
- line_edutor.lua (offers an easy line editor, the reason for a line editor is so that the whole document does not need to be synthesized into speech just to correct one mistake, this tool can be used for programming too,simple version could just have a shortcut for repeating the previous line, and a way to retype it. an advanced version may have a way to move from word to word, and letter by letter, and a way to say the current word and the current letter and the current line and the whole file)
+ BlindOE (the operation environment, similar to bash) 
+ -this program helps people manage their files and start programs
+ 
+ -line_edutor.lua (offers an easy line editor, the reason for a line editor is so that the whole document does not need to be synthesized into speech just to correct one mistake, this tool can be used for programming too,simple version could just have a shortcut for repeating the previous line, and a way to retype it. 
+
+ -voice internet relay chat
 
 install flite
 
@@ -46,12 +50,10 @@ git clone https://github.com/amigojapan/BlindOS
 
 —up to here most things have been implemented
 To do:
-0). Blind IRC client
+0). Blind Menu (a kind of desktop for those who prefer to use a menu rather than commands, works kind of like a menu on the telephone)
 1). BlindWEB (A web client that accesses a group of webpages designed  specifically for the blind), this will also allow people to host their own applications made for BlindOS on the web 
 2). Blind Mail Client
-3). BlindIRC (An IRC chat client that allows to simultaneously type while listening to what the chat is saying)
-4). Blind Music Player
-5). Blind App Downloader(package manager)
-6). Blind Menu (a kind of desktop for those who prefer to use a menu rather than commands, works kind of like a menu on the telephone)
+3). Blind Music Player
+4). Blind App Downloader(package manager)
 
 Other applications for the blind are welcome and will be added to BlindOS
