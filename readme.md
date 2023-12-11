@@ -48,12 +48,19 @@ git clone https://github.com/amigojapan/BlindOS
 
 ./BlindOE.lua
 
+
 —up to here most things have been implemented
+
 To do:
+
 0). Blind Menu (a kind of desktop for those who prefer to use a menu rather than commands, works kind of like a menu on the telephone)
+
 1). BlindWEB (A web client that accesses a group of webpages designed  specifically for the blind), this will also allow people to host their own applications made for BlindOS on the web 
+
 2). Blind Mail Client
+
 3). Blind Music Player
+
 4). Blind App Downloader(package manager)
 
 Other applications for the blind are welcome and will be added to BlindOS
