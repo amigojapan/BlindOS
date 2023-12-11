@@ -39,6 +39,18 @@ while quit==false do
 			--local output = os.execute()
 			--os.execute("killall orca",true)
 			speakAndPrint(output)
+		elseif(command_line_arr[1]=="virc") then
+			if(arg[1]) then
+				nick = '"'..arg[1]..'"'
+			else    
+				nick ='"'.."voiceIRC" .. math.random(1, 1000)..'"'
+			end
+			if(arg[2]) then
+				channel = '"'..arg[2]..'"'
+			else    
+				channel = '"##BlindOS"'
+			end
+			os.execute("lua virc.lua " ..channel.." "..nick ,true)
 		elseif(command_line_arr[1]=="run" and command_line_arr[2]=="lua") then
 			local command_line=parameters(commands_line_arr,2)
 			os.execute("lua " .. command_line,true)
@@ -77,6 +89,7 @@ while quit==false do
 			speakAndPrint("date, will say the current date")
 			speakAndPrint("time, will say the current time")
 			speakAndPrint("list lines X, lists all the lines of file X")
+			speakAndPrint("virc channel nick, start voice internet relayed chat")
 			speakAndPrint("edit X, edits file X")
 		elseif(command_input=="日本語") then
 			translate=i18n_setlang("Japanese")
