@@ -10,6 +10,11 @@ second video, better voice and demonstrates how you program in BlindOE
 <a href="https://www.youtube.com/embed/vW1Cn8gW_lg?si=6m35OMOxK82AuMy4" target="_blank"><img src="https://raw.githubusercontent.com/amigojapan/BlindOS/master/youtube%20play%20button.jpg" 
 alt="video demo of ejspeak" width="100" height="80" border="10" /></a>
 
+video showing voice internlay replay chat
+
+<a href="https://youtu.be/rGwiFR_mmeE?si=2kaXZItXhLhJqt-F" target="_blank"><img src="https://raw.githubusercontent.com/amigojapan/BlindOS/master/youtube%20play%20button.jpg" 
+alt="video demo of ejspeak" width="100" height="80" border="10" /></a>
+
 
 BlindOS is an Operating Environment System designed specifically for the blind:
 the goals of this project are:
@@ -25,9 +30,19 @@ install flite
 
 install lua
 
+sudo apt-get install lua
+
+sudo apt-get install luarocks
+
+sudo luarocks install luasocket
+
+sudo apt-get install lua-posix
+
 clone this repo
 
-run ./BlindOE.lua
+git clone https://github.com/amigojapan/BlindOS
+
+./BlindOE.lua
 
 —up to here most things have been implemented
 To do:
