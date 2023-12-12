@@ -49,11 +49,15 @@ follow linux instruction below:
 
 on linux:
 
+sudo apt update
+
 install flite
 
-install lua
+install lua5.3
 
-sudo apt-get install lua
+sudo apt-get install lua5.3
+
+sudo apt-get install liblua5.3-dev
 
 sudo apt-get install luarocks
 
