@@ -1,3 +1,5 @@
+#Blind Operating Enviroment
+
 Copyright 2014 Usmar A. Padow (amigojapan) usmpadow@gmail.com
 
 please bare with the voice for first video, the voice improves after in the second video:
@@ -81,3 +83,8 @@ To do:
 4). Blind App Downloader(package manager)
 
 Other applications for the blind are welcome and will be added to BlindOS
+
+
+
+
+#Join me in irc.libera.chat in channel #BlindOE
