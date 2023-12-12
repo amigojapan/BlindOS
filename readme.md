@@ -30,6 +30,16 @@ Programs: (in order of importance)
 
  -voice internet relay chat
 
+on windows:
+click the code button above and click download zip
+
+install wsl2
+
+install a linux distro from microsoft store, insttuctions for ubuntu are given here
+
+
+on linux:
+
 install flite
 
 install lua
