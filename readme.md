@@ -33,10 +33,19 @@ Programs: (in order of importance)
 on windows:
 click the code button above and click download zip
 
+unzip zip file to known directory
+
 install wsl2
 
 install a linux distro from microsoft store, insttuctions for ubuntu are given here
 
+from ubuntu commandline copy BlindOS-master to your home directory
+
+cp /mnt/c/Users/youruserdirectory/Downloads/BlindOS-master/BlindOS-master ~/BlindOS
+
+cd BlindOS
+
+follow linux instruction below:
 
 on linux:
 
