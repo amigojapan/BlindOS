@@ -1,4 +1,4 @@
-##Blind Operating Enviroment
+# Blind Operating Enviroment
 
 Copyright 2014 Usmar A. Padow (amigojapan) usmpadow@gmail.com
 
@@ -87,4 +87,4 @@ Other applications for the blind are welcome and will be added to BlindOS
 
 
 
-##Join me in irc.libera.chat in channel #BlindOE
+# Join me in irc.libera.chat in channel #BlindOE
