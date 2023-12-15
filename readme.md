@@ -33,9 +33,6 @@ Programs: (in order of importance)
  -voice internet relay chat
 
 on windows:(I am still having touble running it on windows, but i am determined ot get it wokring on windows)
-click the code button above and click download zip
-
-unzip zip file to known directory
 
 install wsl2
 
