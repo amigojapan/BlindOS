@@ -32,7 +32,7 @@ Programs: (in order of importance)
 
  -voice internet relay chat
 
-on windows:
+on windows:(I am still having touble running it on windows, but i am determined ot get it wokring on windows)
 click the code button above and click download zip
 
 unzip zip file to known directory
@@ -64,6 +64,8 @@ sudo apt-get install lua-posix
 clone this repo
 
 git clone https://github.com/amigojapan/BlindOS
+
+edit tmpDir="/home/amigojapan/projects/BlindOS/tmp" in settings.lua. it must be a full absolute path to BlindOS/tmp
 
 ./BlindOE.lua
 
