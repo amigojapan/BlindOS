@@ -42,11 +42,9 @@ follow linux instruction below:
 
 on linux:
 
-sudo apt update
+sudo apt-get update
 
-install flite
-
-install lua5.3
+sudo apt-get install flite
 
 sudo apt-get install lua5.3
 
