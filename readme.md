@@ -36,7 +36,7 @@ on windows:(I am still having touble running it on windows, but i am determined 
 
 install wsl2
 
-install a linux distro from microsoft store, insttuctions for ubuntu are given here
+install a linux distro from microsoft store, insttuctions for ubuntu or debian are given here
 
 follow linux instruction below:
 
