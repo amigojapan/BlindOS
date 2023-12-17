@@ -35,19 +35,21 @@ socket.sleep(15) -- wait enough till logon
 
 line = "nick ".. nick .. "\r\nuser a a a a\r\n"
 --os.exit()
-speakAndPrint(line .. " nick and user ***")
+speakAndPrint(line)
 client:send(line)
 
 socket.sleep(2)
 
 line = "join " .. channel .. "\r\n"
-speakAndPrint(line .. " joining channel ***")
+speakAndPrint(line)
 client:send(line)
 
 socket.sleep(2)
 
 buff = ""
 buffbuff=""
+afterEnter="not entered"
+userInputBefore=""
 while true do
     buff, err = client:receive(1)
     --if buff and buff:find("^PING") then
@@ -79,6 +81,7 @@ while true do
                     buffbuff=""
                 end 
             end
+            afterEnter="not entered"
         end
         --io.write(buff)
         -- Check for PING message
@@ -92,8 +95,7 @@ while true do
 
  
     end
-
-
+        
     if not buff and err == "timeout" then
         -- No data available from the socket, handle input
         socket.sleep(0.05) -- 50ms delay (20 checks per second)
@@ -104,16 +106,36 @@ while true do
                 -- Backspace pressed
                 user_input = user_input:sub(1, -2)
                 print("")
-                print(user_input)
+                speakAndPrint(user_input)
             elseif key == '\n' then
                 -- Enter pressed
-                line = "privmsg " .. channel .. " : " .. user_input .. "\r\n"
-                client:send(line)
-                print("sending:", line)
-
-                socket.sleep(2)
-                user_input = ""
-                print("")
+                
+                if afterEnter ~= "yes enter" then
+                    speakAndPrint(user_input)
+                    speakAndPrint("send? Y for yes, N for no")
+                    userInputBefore=user_input
+                    user_input=""
+                    afterEnter="yes enter"
+                end
+                if afterEnter == "yes enter" then
+                    --print("user_input:"..user_input)
+                    if(string.lower(user_input)=="y") then
+                        line = "privmsg " .. channel .. " :" .. userInputBefore .. "\r\n"
+                        client:send(line)
+                        --print("sending:", line)
+                        socket.sleep(2)
+                        user_input = ""
+                        print("")
+                        afterEnter = "no enter"
+                        userInputBefore=""
+                        speakAndPrint("sent")
+                    elseif(string.lower(user_input)=="n") then
+                        afterEnter = "no enter"
+                        user_input=""
+                        userInputBefore=""
+                        speakAndPrint("cancelled")
+                    end
+                end
             else
                 -- Alphanumeric key pressed
                 user_input = user_input .. key
