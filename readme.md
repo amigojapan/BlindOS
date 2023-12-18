@@ -57,7 +57,7 @@ now follow a normal linux installation instructions
 
 follow linux instruction below:
 
-on linux:
+on linux:(developed and tested on Linux mint)
 
 sudo apt-get update
 
