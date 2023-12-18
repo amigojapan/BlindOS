@@ -51,6 +51,8 @@ sudo apt-get install pulseaudio
 
 you will need to type this each time, you may want to put it in .bashrc
 
+pulseaudio
+
 export PULSE_SERVER=127.0.0.1;
 
 now follow a normal linux installation instructions
