@@ -32,6 +32,7 @@ Programs: (in order of importance)
 
  -voice internet relay chat
 
+<!---
 on windows:(I am still having touble running it on windows, but i am determined ot get it wokring on windows)
 
 install wsl2
@@ -54,14 +55,23 @@ you will need to type this each time, you may want to put it in .bashrc
 pulseaudio
 
 export PULSE_SERVER=127.0.0.1;
+ --->
+for windows:
+first download and install virtual box from  [here]([https://link-url-here.org](https://download.virtualbox.org/virtualbox/7.0.12/VirtualBox-7.0.12-159484-Win.exe))
 
-now follow a normal linux installation instructions
+download debian 12 Bookworm amd64 from  [here]([https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.4.0-amd64-netinst.iso))
 
-follow linux instruction below:
+install debian 12 Bookworm on virtual box
 
-on linux:(developed and tested on Linux mint)
+install Guest Additions for linux
+
+then follow the following insturctions for linux:
+
+on linux:(developed and tested on Linux mint and debian 12 bookworm(on debian eliminate sudo and use su to switch to root)
 
 sudo apt-get update
+
+sudo apt-get install git
 
 sudo apt-get install flite
 
