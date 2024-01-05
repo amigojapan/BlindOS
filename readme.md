@@ -57,13 +57,13 @@ pulseaudio
 export PULSE_SERVER=127.0.0.1;
  --->
 for windows:
-first download and install virtual box from  [here]([https://link-url-here.org](https://download.virtualbox.org/virtualbox/7.0.12/VirtualBox-7.0.12-159484-Win.exe))
+first download and install virtual box from  [here](https://link-url-here.org](https://download.virtualbox.org/virtualbox/7.0.12/VirtualBox-7.0.12-159484-Win.exe)
 
-download debian 12 Bookworm amd64 from  [here]([https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.4.0-amd64-netinst.iso))
+download debian 12 Bookworm amd64 from  [here](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.4.0-amd64-netinst.iso)
 
 install debian 12 Bookworm on virtual box
 
-install Guest Additions for linux
+install Guest Additions for linux, instuctions found [here](https://wiki.debian.org/VirtualBox#Installing_the_Guest_Additions_on_a_Debian_VM)
 
 then follow the following insturctions for linux:
 
