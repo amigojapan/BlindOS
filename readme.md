@@ -121,19 +121,24 @@ and run it like this
 
 To do:
 
-0). Blind Menu (a kind of desktop for those who prefer to use a menu rather than commands, works kind of like a menu on the telephone)
+0). need to add a feture to editor to move chuncks of code aroudn in a file, like move lines form line 20 to line 30 to line 15
 
-1). BlindWEB (A web client that accesses a group of webpages designed  specifically for the blind), this will also allow people to host their own applications made for BlindOS on the web 
+1). Blind Menu (a kind of desktop for those who prefer to use a menu rather than commands, works kind of like a menu on the telephone)
 
-2). Blind Mail Client
+2). BlindWEB (A web client that accesses a group of webpages designed  specifically for the blind), this will also allow people to host their own applications made for BlindOS on the web 
 
-3). Blind Music Player
+3). Blind Mail Client
 
-4). Blind App Downloader(package manager)
+4). Blind Music Player
+
+5). Blind App Downloader(package manager)
 
 Other applications for the blind are welcome and will be added to BlindOS
 
+known bugs:
 
+virc quits qith Excess Flood after flooding PONG for some reason
 
+running as ./runBlindOE.py sometimes ends up with an eternal loop of just entering and quitting from BlindOE
 
 # Join me in irc.libera.chat in channel #BlindOE
