@@ -106,6 +106,16 @@ edit tmpDir="/home/amigojapan/projects/BlindOS/tmp" in settings.lua. it must be 
 
 ./BlindOE.lua
 
+once you have been able ot execute it this way, you will want to do the following back in bash
+
+chmod +x ./runBlindOE.py
+
+and run it like this
+
+./runBlindOE.py
+
+
+
 
 —up to here most things have been implemented
 
