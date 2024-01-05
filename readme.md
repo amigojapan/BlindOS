@@ -68,27 +68,39 @@ install Guest Additions for linux, untested instructions can be found [here](htt
 
 then follow the following insturctions for linux:
 
-on linux:(developed and tested on Linux mint and debian 12 bookworm(on debian eliminate sudo and use su to switch to root)
+on linux:(developed and tested on Linux mint and debian 12 bookworm)
 
-sudo apt-get update
+on mint preciede every apt-get with sudo
 
-sudo apt-get install git
+on debian open a termianl and do
 
-sudo apt-get install flite
+su
 
-sudo apt-get install lua5.3
+enter your root password you set during debian installation
 
-sudo apt-get install liblua5.3-dev
+apt-get update
 
-sudo apt-get install luarocks
+apt-get install git
 
-sudo luarocks install luasocket
+apt-get install flite
 
-sudo apt-get install lua-posix
+apt-get install lua5.3
+
+apt-get install liblua5.3-dev
+
+apt-get install luarocks
+
+luarocks install luasocket
+
+apt-get install lua-posix
+
+(on debian only) type exit
 
 clone this repo
 
 git clone https://github.com/amigojapan/BlindOS
+
+cd BlindOS
 
 edit tmpDir="/home/amigojapan/projects/BlindOS/tmp" in settings.lua. it must be a full absolute path to BlindOS/tmp
 
