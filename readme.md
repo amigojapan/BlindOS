@@ -61,9 +61,10 @@ first download and install virtual box from  [here](https://download.virtualbox.
 
 download debian 12 Bookworm amd64 from  [here](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.4.0-amd64-netinst.iso)
 
-install debian 12 Bookworm on virtual box
+install debian 12 Bookworm on virtual box untested instructions can be found [here](https://www.makeuseof.com/how-to-install-debian-on-virtualbox/
+)
 
-install Guest Additions for linux, instuctions found [here](https://wiki.debian.org/VirtualBox#Installing_the_Guest_Additions_on_a_Debian_VM)
+install Guest Additions for linux, untested instructions can be found [here](https://wiki.debian.org/VirtualBox#Installing_the_Guest_Additions_on_a_Debian_VM)
 
 then follow the following insturctions for linux:
 
