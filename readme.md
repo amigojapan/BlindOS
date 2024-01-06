@@ -137,7 +137,7 @@ Other applications for the blind are welcome and will be added to BlindOS
 
 known bugs:
 
-virc quits qith Excess Flood after flooding PONG for some reason
+FIXED-virc quits qith Excess Flood after flooding PONG for some reason
 
 running as ./runBlindOE.py sometimes ends up with an eternal loop of just entering and quitting from BlindOE
 
