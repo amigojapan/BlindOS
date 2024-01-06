@@ -20,7 +20,7 @@ end
 if(arg[2]) then
     channel = arg[2]
 else    
-    channel = "##BlindOE"
+    channel = "#BlindOE"
 end
 
 server = "irc.libera.chat"
@@ -91,9 +91,8 @@ while true do
             line = "PONG :" .. ping_message .. "\r\n"
             client:send(line)
             socket.sleep(2)
-        end
-
- 
+            buffbuff=""
+        end 
     end
         
     if not buff and err == "timeout" then
