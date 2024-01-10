@@ -39,7 +39,7 @@ while quit==false do
 			local command_line=parameters(commands_line_arr,2)
 			local output = os.capture(command_line,true)
 			speakAndPrint(output)
-		elseif(command_line_arr[1]=="AI" or command_line_arr[1]=="ai" and command_line_arr[2]) then
+		elseif(command_line_arr[1]=="llama" and command_line_arr[2]) then
 			speakAndPrint("processing...")
 			local string=""
 			for i = 2, 1000 do
@@ -96,7 +96,7 @@ while quit==false do
 			os.execute("./line_edutor.lua " .. filename)	
 		elseif(command_line_arr[1]=="help") then
 			speakAndPrint("help for Blind Operating Environment, commands follow:")
-			speakAndPrint("ai parameters, will tell the ai to do what you state in teh parameters.")
+			speakAndPrint("llama parameters, will tell the A.I. to do what you state in teh parameters.")
 			speakAndPrint("say phrase, will say a phrase.")
 			speakAndPrint("run lua X, will run the lua program X")
 			speakAndPrint("run external X, will run the command X on the host operating system. not for interactive programs")
