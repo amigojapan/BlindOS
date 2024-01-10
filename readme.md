@@ -17,6 +17,12 @@ video showing voice internlay replay chat
 <a href="https://youtu.be/rGwiFR_mmeE?si=2kaXZItXhLhJqt-F" target="_blank"><img src="https://raw.githubusercontent.com/amigojapan/BlindOS/master/youtube%20play%20button.jpg" 
 alt="video demo of ejspeak" width="100" height="80" border="10" /></a>
 
+ollama ai now available with BlindOE
+
+<a href="https://youtu.be/fAdPHP0iniM?si=RTcXXJbzPhERtpEL" target="_blank"><img src="https://raw.githubusercontent.com/amigojapan/BlindOS/master/youtube%20play%20button.jpg" 
+alt="video demo of ejspeak" width="100" height="80" border="10" /></a>
+
+
 
 BlindOS is an Operating Environment System designed specifically for the blind:
 the goals of this project are:
