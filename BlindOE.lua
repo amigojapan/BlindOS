@@ -42,7 +42,7 @@ while quit==false do
 		elseif(command_line_arr[1]=="AI" or command_line_arr[1]=="ai" and command_line_arr[2]) then
 			speakAndPrint("processing...")
 			local string=""
-			for i = 1, 1000 do
+			for i = 2, 1000 do
 				if command_line_arr[i] == nil then
 					break
 				end
