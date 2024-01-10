@@ -47,9 +47,11 @@ while quit==false do
 					break
 				end
 			
-				string = string .. command_line_arr[i] -- gather all the parameters in one string
+				string = string .. command_line_arr[i] .. " "-- gather all the parameters in one string
 			end
-			local command_line='user_input=' .. string .. ';command="ollama run llama2 \"$user_input\"";eval "$command"'
+			--print(string)
+			local command_line='user_input="' .. string  .. '";command="ollama run llama2 \"$user_input\"";eval "$command"'
+			--local command_line='user_input="' .. string  .. '";command="echo \"$user_input\"";eval "$command"'
 			local output = os.capture(command_line,true)
 			speakAndPrint(output)
 		elseif(command_line_arr[1]=="virc") then
