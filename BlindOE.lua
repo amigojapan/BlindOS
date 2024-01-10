@@ -94,6 +94,7 @@ while quit==false do
 			os.execute("./line_edutor.lua " .. filename)	
 		elseif(command_line_arr[1]=="help") then
 			speakAndPrint("help for Blind Operating Environment, commands follow:")
+			speakAndPrint("ai parameters, will tell the ai to do what you state in teh parameters.")
 			speakAndPrint("say phrase, will say a phrase.")
 			speakAndPrint("run lua X, will run the lua program X")
 			speakAndPrint("run external X, will run the command X on the host operating system. not for interactive programs")
