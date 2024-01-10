@@ -94,6 +94,12 @@ luarocks install luasocket
 
 apt-get install lua-posix
 
+curl https://ollama.ai/install.sh | sh
+
+ollama run llama2
+
+/bye
+
 (on debian only) type exit
 
 clone this repo
