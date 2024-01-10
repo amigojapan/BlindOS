@@ -38,9 +38,19 @@ while quit==false do
 		elseif(command_line_arr[1]=="run" and command_line_arr[2]=="external") then
 			local command_line=parameters(commands_line_arr,2)
 			local output = os.capture(command_line,true)
-			--os.execute("orca;" .. command_line,true)
-			--local output = os.execute()
-			--os.execute("killall orca",true)
+			speakAndPrint(output)
+		elseif(command_line_arr[1]=="AI" or command_line_arr[1]=="ai" and command_line_arr[2]) then
+			speakAndPrint("processing...")
+			local string=""
+			for i = 1, 1000 do
+				if command_line_arr[i] == nil then
+					break
+				end
+			
+				string = string .. command_line_arr[i] -- gather all the parameters in one string
+			end
+			local command_line='user_input=' .. string .. ';command="ollama run llama2 \"$user_input\"";eval "$command"'
+			local output = os.capture(command_line,true)
 			speakAndPrint(output)
 		elseif(command_line_arr[1]=="virc") then
 			if(command_line_arr[2]) then
