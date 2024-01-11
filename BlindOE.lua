@@ -54,6 +54,23 @@ while quit==false do
 			--local command_line='user_input="' .. string  .. '";command="echo \"$user_input\"";eval "$command"'
 			local output = os.capture(command_line,true)
 			speakAndPrint(output)
+		elseif(command_line_arr[1]=="translate" and command_line_arr[6]) then
+			speakAndPrint("processing...")
+			local string="tanslate" .. " from " .. command_line_arr[3] .. " to " .. command_line_arr[5] .. " "
+			for i = 6, 1000 do
+				if command_line_arr[i] == nil then
+					break
+				end
+			
+				string = string .. command_line_arr[i] .. " "-- gather all the parameters in one string
+			end
+			string = string .. ", just give me the phrase, I dont need an explanation"
+
+			--print(string)
+			local command_line='user_input="' .. string  .. '";command="ollama run llama2 \"$user_input\"";eval "$command"'
+			--local command_line='user_input="' .. string  .. '";command="echo \"$user_input\"";eval "$command"'
+			local output = os.capture(command_line,true)
+			speakAndPrint(output)		
 		elseif(command_line_arr[1]=="virc") then
 			if(command_line_arr[2]) then
 				nick = '"'..command_line_arr[2]..'"'
@@ -96,7 +113,8 @@ while quit==false do
 			os.execute("./line_edutor.lua " .. filename)	
 		elseif(command_line_arr[1]=="help") then
 			speakAndPrint("help for Blind Operating Environment, commands follow:")
-			speakAndPrint("llama parameters, will tell the A.I. to do what you state in teh parameters.")
+			speakAndPrint("llama parameters, will tell the A.I. to do what you state in the parameters.")
+				speakAndPrint("translate from language to language sentence, Provides A.I. translation.")
 			speakAndPrint("say phrase, will say a phrase.")
 			speakAndPrint("run lua X, will run the lua program X")
 			speakAndPrint("run external X, will run the command X on the host operating system. not for interactive programs")
@@ -121,8 +139,4 @@ while quit==false do
 		end
 	end
 end
---furq: amigojapan: string.sub(package.config, 1, 1) will give you the directory separator
---if(not file_exists("settingsfile")) then
---	speakAndPrint("Fist time settings")
---end
---local f = assert(io.open("settingsfile", "r"))
+--fix problem with putting quotes inside llama or translate command, maybe need to escape quotes in some special way?
