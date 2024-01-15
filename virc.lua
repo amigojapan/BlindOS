@@ -144,9 +144,8 @@ while true do
         end
     elseif not buff then
         -- A "real" error occurred
-        print(err)
-        os.exit(1)
+        print("error:" .. err)
+        --print(err)
+        --os.exit(1)
     end
-
-
 end
