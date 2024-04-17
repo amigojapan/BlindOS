@@ -29,7 +29,7 @@ function findLastNick(inputString)
     return lastNickname
 end
 function findLastMessage(inputString,channel)
-    local marker = channel.." :"
+    local marker = channel.." :" -- whould not realy on colon I heard
     local lastSubstring = ""
     
     local i = 1

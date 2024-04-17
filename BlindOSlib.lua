@@ -1,6 +1,53 @@
 require("punctuation")
 require("settings")
+require("voiceRecognition")
 --readline = require("readline")
+--function voiceRecord()
+--	--os.execute(voiceRecorder)
+--	os.execute([[sh -c "rec rec.ogg rate 8k silence 1 0.1 3% 1 3.0 3% 2"]])
+--	--io.popen(voiceRecorder):close()
+--end
+function file_exists(file)
+	local f = io.open(file, "rb")
+	if f then f:close() end
+	return f ~= nil
+end
+
+-- get all lines from a file, returns an empty 
+-- list/table if the file does not exist
+function lines_from(file)
+	if not file_exists(file) then return {} end
+	local lines = {}
+	for line in io.lines(file) do 
+		lines[#lines + 1] = line
+	end
+	return lines
+	end
+function os.capture(cmd, raw)
+	local f = assert(io.popen(cmd, 'r'))
+	local s = assert(f:read('*a'))
+	f:close()
+	if raw then return s end
+	s = string.gsub(s, '^%s+', '')
+	s = string.gsub(s, '%s+$', '')
+	s = string.gsub(s, '[\n\r]+', ' ')
+	return s
+end
+
+function InputVoiceOrKeyboard(override)
+	if override ~= nil then --specify what input method to use
+		if override == "voice" then
+			return io.voiceInput()
+		else -- use keyboard input
+			return io.read()
+		end
+	end
+	if defaultInputType == "voice" then
+		return io.voiceInput()
+	else -- use keyboard input
+		return io.read()
+	end
+end
 function speakAndPrint(output,sayPunctuation,spaces,language)
 	--ssayPunctuation = sayPunctuation == nil and true or sayPunctuation
 	--spaces = spaces == nil and false or spaces
@@ -83,16 +130,7 @@ function split_by_newline(str)
 	end
 	return arr
 end
-function os.capture(cmd, raw)
-  local f = assert(io.popen(cmd, 'r'))
-  local s = assert(f:read('*a'))
-  f:close()
-  if raw then return s end
-  s = string.gsub(s, '^%s+', '')
-  s = string.gsub(s, '%s+$', '')
-  s = string.gsub(s, '[\n\r]+', ' ')
-  return s
-end
+  
 function file_exists(name)
    local f=io.open(name,"r")
    if f~=nil then io.close(f) return true else return false end
