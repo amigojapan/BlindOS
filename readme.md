@@ -98,6 +98,8 @@ apt-get install luarocks
 
 luarocks install luasocket
 
+luarocks install luafilesystem
+
 apt-get install lua-posix
 
 curl https://ollama.ai/install.sh | sh
