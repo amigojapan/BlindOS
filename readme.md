@@ -126,7 +126,12 @@ chmod +x ./runBlindOE.py
 
 and run it like this
 
+pip3 install vosk
+
+vosk-transcriber -i rec.wav -o rec.txt
+
 ./runBlindOE.py
+
 
 
 
