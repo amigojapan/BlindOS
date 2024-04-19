@@ -1,8 +1,12 @@
 --internationalization and localization implementation by amigojapan
 --dictionary for english, kept in seperate file you can include it by require("localizations.lua")
 i18n={}
-i18n["English"]={
+i18n["English_keyboard_input"]={
 	["Enter command:"]="Enter command:"
+	}
+i18n["English_voice_input"]={
+	["Type 'help for system commands' and press enter for help on how to use the commands"]="Say, tell me the system commands, if you need help",
+	["Enter command:"]="Say command:"
 	}
 i18n["Spanish"]={
 	["Enter command:"]="Entre Commando:"
